@@ -2,10 +2,10 @@
 <odoo>
     <data>
         <record id="view_partner_form_inherit_username" model="ir.ui.view">
-            <name>res.partner.form.inherit.username</name>
-            <model>res.partner</model>
-            <inherit_id ref="base.view_partner_form"/>
-            <arch type="xml">
+            <field name="name">res.partner.form.inherit.username</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
                 <!-- Locate the parent of the name field and insert username inside it -->
                 <xpath expr="//field[@name='name']/.." position="inside">
                     <div class="d-flex align-items-center ms-3" style="font-size: 16px;">
@@ -13,7 +13,7 @@
                         <field name="x_username" placeholder="Username" class="oe_inline" style="border-bottom: 1px dashed #ccc !important; font-weight: normal;"/>
                     </div>
                 </xpath>
-            </arch>
+            </field>
         </record>
     </data>
 </odoo>
