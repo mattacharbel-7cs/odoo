@@ -9,20 +9,22 @@
                 <!-- Locate the parent of the name field and insert username inside it -->
                 <xpath expr="//field[@name='name']/.." position="inside">
                     <style>
-                        /* Force the username field text to render as white in both read and edit modes */
-                        [name="x_studio_username"],
-                        [name="x_studio_username"] input,
-                        [name="x_studio_username"] span,
-                        .o_field_widget[name="x_studio_username"] {
+                        /* Ultra-high specificity CSS override to force white text color for username field in all states */
+                        .o_form_view .oe_title .o_field_widget[name="x_studio_username"],
+                        .o_form_view .oe_title .o_field_widget[name="x_studio_username"] *,
+                        .o_form_view .oe_title .o_field_widget[name="x_studio_username"] input,
+                        .o_form_view .oe_title .o_field_widget[name="x_studio_username"] span,
+                        .o_form_view .oe_title [name="x_studio_username"] {
                             color: #FFFFFF !important;
+                            -webkit-text-fill-color: #FFFFFF !important;
                         }
                     </style>
-                    <div class="d-flex align-items-center ms-3" style="font-size: 24px; font-weight: bold;">
+                    <div class="d-flex align-items-center ms-3 text-white" style="font-size: 24px; font-weight: bold;">
                         <span class="text-white-50 me-2">@</span>
-                        <field name="x_studio_username" placeholder="Username" class="oe_inline" style="border-bottom: 1px dashed rgba(255,255,255,0.5) !important; font-weight: bold; color: #FFFFFF !important;"/>
+                        <field name="x_studio_username" placeholder="Username" class="oe_inline text-white" style="border-bottom: 1px dashed rgba(255,255,255,0.5) !important; font-weight: bold; color: #FFFFFF !important;"/>
                     </div>
                 </xpath>
-            </field>
+            </arch>
         </record>
     </data>
 </odoo>
