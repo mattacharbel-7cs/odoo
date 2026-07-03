@@ -8,6 +8,19 @@
             <arch type="xml">
                 <!-- Locate the parent of the name field and insert username inside it with larger white font -->
                 <xpath expr="//field[@name='name']/.." position="inside">
+                    <style>
+                        .o_field_widget[name="x_studio_username"] {
+                            color: #FFFFFF !important;
+                        }
+                        .o_field_widget[name="x_studio_username"] input {
+                            color: #FFFFFF !important;
+                            font-weight: bold !important;
+                        }
+                        .o_field_widget[name="x_studio_username"] span {
+                            color: #FFFFFF !important;
+                            font-weight: bold !important;
+                        }
+                    </style>
                     <div class="d-flex align-items-center ms-3" style="font-size: 24px; font-weight: bold;">
                         <span class="text-white-50 me-2">@</span>
                         <field name="x_studio_username" placeholder="Username" class="oe_inline" style="border-bottom: 1px dashed rgba(255,255,255,0.3) !important; font-weight: bold; color: #FFFFFF !important;"/>
