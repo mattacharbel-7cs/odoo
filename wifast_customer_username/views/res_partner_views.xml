@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_partner_form_wifi_username" model="ir.ui.view">
+        <field name="name">res.partner.form.wifi.username</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <group name="misc" position="inside">
+                <field name="wifi_username"/>
+            </group>
+        </field>
+    </record>
+
+    <record id="view_res_partner_filter_wifi_username" model="ir.ui.view">
+        <field name="name">res.partner.search.wifi.username</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <field name="email" position="after">
+                <field name="wifi_username" string="Username"
+                       filter_domain="[('wifi_username', 'ilike', self)]"/>
+            </field>
+        </field>
+    </record>
+</odoo>
