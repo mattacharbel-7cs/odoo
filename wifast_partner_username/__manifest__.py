@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'WiFast Partner Username',
-    'version': '1.0',
+    'version': '1.1',
     'summary': 'Add Username field next to Contact Name',
     'description': """
         Adds a custom username field (x_username) next to the partner name title in contact form views.
