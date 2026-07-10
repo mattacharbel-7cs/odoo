@@ -1,30 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        <record id="view_partner_form_inherit_username" model="ir.ui.view">
-            <name>res.partner.form.inherit.username</name>
-            <model>res.partner</model>
-            <inherit_id ref="base.view_partner_form"/>
-            <field name="arch" type="xml">
-                <!-- Locate the parent of the name field and insert username inside it -->
-                <xpath expr="//field[@name='name']/.." position="inside">
-                    <style>
-                        /* Ultra-high specificity CSS override to force white text color for username field in all states */
-                        .o_form_view .oe_title .o_field_widget[name="x_studio_username"],
-                        .o_form_view .oe_title .o_field_widget[name="x_studio_username"] *,
-                        .o_form_view .oe_title .o_field_widget[name="x_studio_username"] input,
-                        .o_form_view .oe_title .o_field_widget[name="x_studio_username"] span,
-                        .o_form_view .oe_title [name="x_studio_username"] {
-                            color: #FFFFFF !important;
-                            -webkit-text-fill-color: #FFFFFF !important;
-                        }
-                    </style>
-                    <div class="d-flex align-items-center ms-3 text-white" style="font-size: 24px; font-weight: bold;">
-                        <span class="text-white-50 me-2">@</span>
-                        <field name="x_studio_username" placeholder="Username" class="oe_inline text-white" style="border-bottom: 1px dashed rgba(255,255,255,0.5) !important; font-weight: bold; color: #FFFFFF !important;"/>
-                    </div>
-                </xpath>
-            </arch>
-        </record>
-    </data>
+    <record id="view_partner_form_inherit_username" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.username</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Insert the big @username next to the contact name.
+                 Text is forced white via static/src/css/username.css (backend asset). -->
+            <xpath expr="//field[@name='name']/.." position="inside">
+                <div class="d-flex align-items-center ms-3 text-white" style="font-size: 24px; font-weight: bold;">
+                    <span class="text-white-50 me-2">@</span>
+                    <field name="x_studio_username" placeholder="Username" class="oe_inline text-white" style="border-bottom: 1px dashed rgba(255,255,255,0.5); font-weight: bold;"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
 </odoo>
