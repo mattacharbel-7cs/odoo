@@ -58,15 +58,16 @@ class WifiCustomerUsernameController(http.Controller):
             return False
 
     def _contact_payload(self, partner):
-        return {
+        data = {
             'id': partner.id,
             'name': partner.name,
-            'email': partner.email,
-            'phone': partner.phone,
-            'mobile': partner.mobile,
             'username': partner.wifi_username,
             'company_id': partner.company_id.id or False,
         }
+        for field_name in ('email', 'phone', 'mobile'):
+            if field_name in partner._fields:
+                data[field_name] = partner[field_name]
+        return data
 
     def _compact_contact_payload(self, partner):
         return {
@@ -98,13 +99,21 @@ class WifiCustomerUsernameController(http.Controller):
 
         phone = (values.get('phone') or '').strip()
         if phone:
-            return self._search_single(Partner, [
-                '|',
-                ('phone', '=', phone),
-                ('mobile', '=', phone),
-            ])
+            phone_domain = []
+            if 'phone' in Partner._fields:
+                phone_domain.append(('phone', '=', phone))
+            if 'mobile' in Partner._fields:
+                phone_domain.append(('mobile', '=', phone))
+            if not phone_domain:
+                return Partner.browse(), 'phone_lookup_unavailable'
+            return self._search_single(Partner, self._or_domain(phone_domain))
 
         return Partner.browse(), 'missing_identifier'
+
+    def _or_domain(self, expressions):
+        if len(expressions) == 1:
+            return expressions
+        return ['|'] * (len(expressions) - 1) + expressions
 
     def _search_single(self, Partner, domain):
         partners = Partner.search(domain, limit=2)

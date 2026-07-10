@@ -1,6 +1,6 @@
 {
     'name': 'WiFast Customer Username',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.0.2',
     'summary': 'Adds a WiFi/customer account username to contacts with a secured API.',
     'author': 'Dow Group',
     'website': 'https://www.dowgroup.com',

@@ -6,8 +6,8 @@ endpoints for a future WiFi or billing system integration.
 ## Contact Field
 
 The module adds `wifi_username` on `res.partner` with the label **Username**.
-It appears on the contact form under **Sales & Purchase**, in the Misc section,
-and is searchable from the Contacts list search bar.
+It appears directly under the contact name on the contact form and is searchable
+from the Contacts list search bar.
 
 Non-empty usernames must be unique within the same Odoo company.
 

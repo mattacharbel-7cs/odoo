@@ -5,9 +5,12 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <group name="misc" position="inside">
-                <field name="wifi_username"/>
-            </group>
+            <xpath expr="//sheet/div[hasclass('mb8')]//h1" position="after">
+                <div class="d-flex align-items-baseline w-md-50">
+                    <i class="fa fa-fw me-1 fa-user text-primary" title="Username"/>
+                    <field name="wifi_username" class="w-100" placeholder="Username"/>
+                </div>
+            </xpath>
         </field>
     </record>
 
