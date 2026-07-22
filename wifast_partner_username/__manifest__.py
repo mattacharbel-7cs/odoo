@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'WiFast Partner Username',
-    'version': '19.0.1.1.0',
+    'version': '19.0.1.2.0',
     'summary': 'Username field next to Contact Name + secured external API.',
     'description': """
         Adds the custom @username field (x_studio_username) next to the partner
