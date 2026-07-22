@@ -1,0 +1,15 @@
+/* Force the WiFast @username field text to white in the contact title,
+   in both edit (input) and readonly (span) states. Loaded as a backend
+   asset so it reliably overrides the theme colour without any JS. */
+.o_form_view .oe_title .o_field_widget[name="x_studio_username"],
+.o_form_view .oe_title .o_field_widget[name="x_studio_username"] input,
+.o_form_view .oe_title .o_field_widget[name="x_studio_username"] .o_input,
+.o_form_view .oe_title .o_field_widget[name="x_studio_username"] span {
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+}
+
+.o_form_view .oe_title .o_field_widget[name="x_studio_username"] input::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.5) !important;
+}
